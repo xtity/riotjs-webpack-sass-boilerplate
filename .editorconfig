@@ -7,8 +7,8 @@ insert_final_newline = true
 
 [*.{ts,ect}]
 indent_size = 4
-indent_style = tab
+indent_style = space
 
-[*.{json,yml}]
+[*.{json,yml,config.js}]
 indent_size = 2
 indent_style = space
