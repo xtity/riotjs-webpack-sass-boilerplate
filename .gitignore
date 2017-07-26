@@ -57,3 +57,9 @@ typings/
 # dotenv environment variables file
 .env
 
+# Custom
+.DS_Store
+.vscode
+build
+lib
+public/javascripts

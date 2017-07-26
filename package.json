@@ -1,0 +1,30 @@
+{
+  "name": "riotjs-webpack-sass-boilerplate",
+  "version": "1.0.0",
+  "description": "riotjs-webpack-sass-boilerplate",
+  "main": "index.js",
+  "devDependencies": {
+    "@types/riot": "^3.6.0",
+    "concurrently": "^2.1.0",
+    "lite-server": "^2.2.0",
+    "node-sass": "^4.5.3",
+    "nodemon": "^1.11.0",
+    "riotjs-loader": "^3.0.0",
+    "ts-loader": "^2.3.1",
+    "typescript": "^2.4.2",
+    "webpack": "^1.13.0"
+  },
+  "scripts": {
+    "webpack": "webpack -w",
+    "lite": "lite-server",
+    "build-css": "node-sass ./src/scss/app.scss ./app/styles/app.css --output-style compressed",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\"",
+    "start": "concurrently \"npm run lite\" \"npm run webpack\" \"npm run watch-css\""
+  },
+  "keywords": [],
+  "author": "xtity",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "riot": "^2.4.1"
+  }
+}

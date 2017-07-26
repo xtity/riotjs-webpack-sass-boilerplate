@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "lib": ["es6", "dom"],
+    "outDir": "build",
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "declaration": false,
+    "strictNullChecks": false,
+    "watch": true
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/**/__tests__/*",
+    "src/**/__mocks__/*",
+    "test/**/*.ts",
+    "typings/custom/**"
+  ]
+}
