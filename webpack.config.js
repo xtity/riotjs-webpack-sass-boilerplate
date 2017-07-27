@@ -14,7 +14,7 @@ module.exports = {
         exclude: /node_modules/,
         enforce: "pre",
         loader: "riotjs-loader",
-        query: {
+        options: {
           type: "typescript"
         }
       },
