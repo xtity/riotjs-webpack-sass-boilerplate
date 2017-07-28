@@ -18,7 +18,7 @@
   "scripts": {
     "webpack": "webpack -w",
     "lite": "lite-server",
-    "build-css": "node-sass ./src/scss/app.scss ./app/styles/app.css --output-style compressed",
+    "build-css": "node-sass ./src/client/style/index.scss ./public/style/index.css --output-style compressed",
     "watch-css": "nodemon -e scss -x \"npm run build-css\"",
     "start": "concurrently \"npm run lite\" \"npm run webpack\" \"npm run watch-css\""
   },

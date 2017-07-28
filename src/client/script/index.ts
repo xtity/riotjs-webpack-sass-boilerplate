@@ -1,5 +1,5 @@
 import * as riot from 'riot';
-import "./app.tag";
+import "../tag/view/app.tag";
 
 console.log("before mount")
 

@@ -62,4 +62,4 @@ typings/
 .vscode
 build
 lib
-public/javascripts
+public/script

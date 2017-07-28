@@ -1,11 +1,13 @@
 var webpack = require("webpack");
 
 module.exports = {
-  entry: "./src/scripts/index.ts",
+  entry: {
+    index: "./src/client/script/index.ts"
+  },
   output: {
-    path: __dirname + "/app/scripts",
-    filename: "bundle.js",
-		publicPath: "/app/",
+    path: __dirname + "/public/script",
+    filename: "[name].js",
+    publicPath: "/public/",
   },
   module: {
     rules: [
@@ -33,5 +35,5 @@ module.exports = {
     new webpack.ProvidePlugin({
       riot: "riot"
     })
-  ]
+  ] 
 }
