@@ -1,6 +1,5 @@
 require('./name.tag');
 
 <app>
-  <name first="Hello" last="World"></name>
-  <name first="Konnichiwa" last="Sekai"></name>
+  <name first="{opts.greet}" last="World"></name>
 </app>

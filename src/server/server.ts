@@ -8,8 +8,8 @@ import { ServerConfig } from "../common/type";
 
 const serverConfig = config.get("server") as ServerConfig;
 const routes = router.create();
-const ectConfig = {
-    root: path.resolve(__dirname, "..", "..", "src", "client", "view"),
+const ectConfig: any = {
+    root: path.resolve(__dirname, "..", "..", "..", "src", "client", "view"),
     ext: ".ect"
 };
 
@@ -19,14 +19,14 @@ export class Server {
     public start(): express.Application {
         const app = express();
 
-        if (app.get('env') === 'development') {
-            const browserSync = require('browser-sync');
+        if (app.get("env") === "development") {
+            const browserSync = require("browser-sync");
             const bs = browserSync({
                 "proxy": "http://" + serverConfig.host + ":" + serverConfig.port,
                 "injectChanges": "true",
                 "files": [
-                    path.resolve(__dirname, "../../public/**/*"),
-                    path.resolve(__dirname, "../../src/client/view/**/*"),
+                    path.resolve(__dirname, "../../../public/**/*"),
+                    path.resolve(__dirname, "../../../src/client/view/**/*"),
                 ],
                 "watchOptions": {
                     "ignored": "node_modules"
@@ -34,13 +34,13 @@ export class Server {
                 "ws": true,
                 "open": false
             });
-            app.use(require('connect-browser-sync')(bs));
+            app.use(require("connect-browser-sync")(bs));
 
             // ect cache is disabled when development.
-            ectConfig["cache"] = false;
+            ectConfig.cache = false;
         }
 
-        app.set('views', path.resolve(__dirname, "..", "..", "src", "client", "view"));
+        app.set("views", path.resolve(__dirname, "..", "..", "..", "src", "client", "view"));
         app.set("view engine", "ect");
         app.engine("ect", ect(ectConfig).render);
         app.use("/", routes);
@@ -50,7 +50,9 @@ export class Server {
             console.log("Listening on port " + serverConfig.port);
             // process.send is defined only when it's executed as the child process.
             if (process.send) {
-                process.send("ready"); // send ready signal to PM2 see: http://pm2.keymetrics.io/docs/usage/signals-clean-restart/#graceful-start
+                // send ready signal to PM2
+                // @see http://pm2.keymetrics.io/docs/usage/signals-clean-restart/#graceful-start
+                process.send("ready");
             }
         });
 

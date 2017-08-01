@@ -1,0 +1,9 @@
+{
+    "coverage": ["./coverage/coverage.json"],
+    "sourcemapped": [
+      "./build/**/*.js"
+    ],
+    "automaticallyShow": true,
+    "showCovered": true,
+    "ignore": ["*.json"]
+}
