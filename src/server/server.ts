@@ -8,10 +8,10 @@ import { ServerConfig } from "../common/type";
 
 const serverConfig = config.get("server") as ServerConfig;
 const routes = router.create();
-const ectRenderer = ect({
+const ectConfig = {
     root: path.resolve(__dirname, "..", "..", "src", "client", "view"),
     ext: ".ect"
-});
+};
 
 export class Server {
     private _server: http.Server;
@@ -25,8 +25,8 @@ export class Server {
                 "proxy": "http://" + serverConfig.host + ":" + serverConfig.port,
                 "injectChanges": "true",
                 "files": [
-                    path.resolve(__dirname, "../../public/**/*.{html,htm,css,js}"),
-                    path.resolve(__dirname, "../../src/{common,server}/*")
+                    path.resolve(__dirname, "../../public/**/*"),
+                    path.resolve(__dirname, "../../src/client/view/**/*"),
                 ],
                 "watchOptions": {
                     "ignored": "node_modules"
@@ -35,11 +35,14 @@ export class Server {
                 "open": false
             });
             app.use(require('connect-browser-sync')(bs));
+
+            // ect cache is disabled when development.
+            ectConfig["cache"] = false;
         }
 
         app.set('views', path.resolve(__dirname, "..", "..", "src", "client", "view"));
         app.set("view engine", "ect");
-        app.engine("ect", ectRenderer.render);
+        app.engine("ect", ect(ectConfig).render);
         app.use("/", routes);
         app.use(express.static("public"));
 

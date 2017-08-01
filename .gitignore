@@ -63,3 +63,4 @@ typings/
 build
 lib
 public/script
+public/style

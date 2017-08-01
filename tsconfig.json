@@ -18,6 +18,7 @@
     "src/**/__tests__/*",
     "src/**/__mocks__/*",
     "test/**/*.ts",
-    "typings/custom/**"
+    "typings/custom/**",
+    "src/client"
   ]
 }
