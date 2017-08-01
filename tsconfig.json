@@ -8,7 +8,7 @@
     "sourceMap": true,
     "declaration": false,
     "strictNullChecks": false,
-    "watch": true
+    "watch": false
   },
   "include": [
     "src/**/*.ts"
