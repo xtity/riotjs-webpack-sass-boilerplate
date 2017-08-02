@@ -1,24 +1,24 @@
 # riotjs-webpack-sass-boilerplate
 riotjs-webpack-sass-boilerplate
 
-# How to use
+## How to use
 
-## Install
+### Install
 ``` bash
 npm i
 ```
 
-## Build
+### Build
 ``` bash
 npm run build
 ```
 
-## Start development server
+### Start development server
 ``` bash
 npm run dev
 ```
 
-## Start production server
+### Start production server
 
 ``` bash
 npm run prod
@@ -29,7 +29,7 @@ more simply,
 npm start
 ```
 
-## Test
+### Test
 ``` bash
 npm run test
 ```
@@ -42,15 +42,17 @@ open ./coverage/ts-report/index.html
 
 
 
-# VSCode Configuration
-``` js:settings.json
+## VSCode Configuration
+
+### settings.json
+``` json
 {
     "typescript.tsdk": "./node_modules/typescript/lib"
 }
 ```
 
-
-``` js:launch.json
+### launch.json
+``` json
 {
     "version": "0.2.0",
     "configurations": [
