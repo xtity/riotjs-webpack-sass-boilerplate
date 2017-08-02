@@ -7,9 +7,11 @@ import * as router from "./router";
 import { ServerConfig } from "../common/type";
 
 const serverConfig = config.get("server") as ServerConfig;
+const viewDir = "../../../src/client/view";
+const publicDir = "../../../public";
 const routes = router.create();
 const ectConfig: any = {
-    root: path.resolve(__dirname, "..", "..", "..", "src", "client", "view"),
+    root: path.resolve(__dirname, viewDir),
     ext: ".ect"
 };
 
@@ -25,8 +27,8 @@ export class Server {
                 "proxy": "http://" + serverConfig.host + ":" + serverConfig.port,
                 "injectChanges": "true",
                 "files": [
-                    path.resolve(__dirname, "../../../public/**/*"),
-                    path.resolve(__dirname, "../../../src/client/view/**/*"),
+                    path.resolve(__dirname, publicDir, "**/*"),
+                    path.resolve(__dirname, viewDir, "**/*"),
                 ],
                 "watchOptions": {
                     "ignored": "node_modules"
@@ -40,7 +42,7 @@ export class Server {
             ectConfig.cache = false;
         }
 
-        app.set("views", path.resolve(__dirname, "..", "..", "..", "src", "client", "view"));
+        app.set("views", path.resolve(__dirname, viewDir));
         app.set("view engine", "ect");
         app.engine("ect", ect(ectConfig).render);
         app.use("/", routes);
